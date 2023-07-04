@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     if (argc <= 1) {
         fprintf(stderr, USAGE);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     while (--argc > 0) {
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
             [sourceURL release];
             [error release];
 
-            exit(error.code);
+            return error.code;
         }
 
         printf("%s\n", targetURL.path.UTF8String);
